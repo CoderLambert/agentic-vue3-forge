@@ -1,1 +1,59 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-ink: oklch(0.19 0.02 255);
+  --color-paper: oklch(0.97 0.01 85);
+  --color-clay: oklch(0.74 0.09 48);
+  --color-signal: oklch(0.75 0.09 225);
+  --color-mist: oklch(0.91 0.03 235);
+  --font-display:
+    'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', Georgia, serif;
+  --font-body: 'Avenir Next', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --shadow-panel: 0 28px 90px -36px rgba(15, 23, 42, 0.55);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply m-0 min-h-screen bg-ink font-body text-paper antialiased;
+    background-image:
+      radial-gradient(
+        circle at top left,
+        color-mix(in srgb, var(--color-signal) 24%, transparent) 0%,
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at bottom right,
+        color-mix(in srgb, var(--color-clay) 20%, transparent) 0%,
+        transparent 34%
+      ),
+      linear-gradient(135deg, rgba(11, 16, 26, 0.98), rgba(29, 41, 63, 0.96));
+  }
+
+  a {
+    @apply text-inherit;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-signal) 55%, white 12%);
+    color: var(--color-ink);
+  }
+}
+
+#app {
+  min-height: 100vh;
+}
