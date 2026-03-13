@@ -1,27 +1,23 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
-
-import { defaultFeatureTestPage } from '@/features/test-lab/registry'
-
 const operatingPrinciples = [
   {
-    title: 'Structure before scale',
-    detail: '先把目录、路由和约束立住，再往里持续填模块。',
+    title: 'Primary branch stays clean',
+    detail: '当前分支只放正式架构和业务代码，不承接一次性验证页面。',
   },
   {
-    title: 'Visible validation',
-    detail: '每个新功能都能落到单独的实验页，不把验证逻辑混进业务首页。',
+    title: 'Spike first for architecture',
+    detail: '框架、样式链路、目录试验先去 spike 分支验证，确认后只回收规则沉淀。',
   },
   {
-    title: 'AI-friendly clarity',
-    detail: '命名、边界和测试都保持可搜索、可接手、可回归。',
+    title: 'Keep only reusable residue',
+    detail: '合回主线的应该是 skill、约定、脚手架和必要 contract test，而不是实验页面。',
   },
 ]
 
 const nextSteps = [
-  '补业务首页模块和真实导航',
-  '按功能继续扩展 test-lab 页面注册表',
-  '逐步补上 query、store、api 的最小测试',
+  '补正式首页导航和业务模块入口',
+  '为核心模块定义最小 contract test',
+  '把架构验证流程固化到 spike 分支约定里',
 ]
 </script>
 
@@ -44,22 +40,21 @@ const nextSteps = [
               <p class="text-xs uppercase tracking-[0.36em] text-ink/45">Agentic Vue3 Forge</p>
               <div class="space-y-4">
                 <h1 class="max-w-4xl font-display text-5xl leading-none text-balance sm:text-6xl">
-                  Vue3 工程底座先跑起来，验证页留在侧边战场。
+                  主分支先保持纯净，架构验证放到独立 spike 分支。
                 </h1>
                 <p class="max-w-2xl text-sm leading-7 text-ink/68 sm:text-base">
-                  首页先保持干净，承载项目定位和后续导航。功能验证统一放进 test
-                  lab，避免首页被临时实验内容侵占。
+                  这个首页先承担项目定位和正式入口。临时实验、样式验证、路由试探都不直接留在当前分支，
+                  只把最终确认过的规则和可复用结构带回来。
                 </p>
               </div>
             </div>
 
             <div class="flex flex-wrap gap-3">
-              <RouterLink
-                :to="{ name: defaultFeatureTestPage.slug }"
-                class="inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-sm uppercase tracking-[0.24em] text-paper transition hover:-translate-y-0.5 hover:bg-ink/92 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/20"
+              <span
+                class="inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-sm uppercase tracking-[0.24em] text-paper"
               >
-                Open Validation Lab
-              </RouterLink>
+                Mainline Ready
+              </span>
               <a
                 href="https://vuejs.org/"
                 target="_blank"
@@ -96,10 +91,9 @@ const nextSteps = [
                 </p>
               </div>
               <div class="rounded-[24px] border border-paper/12 bg-paper/8 p-4">
-                <p class="font-display text-3xl leading-none text-paper">Homepage stays clean</p>
+                <p class="font-display text-3xl leading-none text-paper">Spike-driven validation</p>
                 <p class="mt-3 text-sm leading-7 text-paper/68">
-                  业务入口与验证入口分离。首页以后可以换成正式 landing 或
-                  dashboard，不影响测试路由。
+                  架构试验不常驻主线。需要 smoke page 时，去 `spike/*` 分支开临时页面和路由。
                 </p>
               </div>
             </div>

@@ -20,10 +20,10 @@ describe('App', () => {
 
     expect(router.currentRoute.value.name).toBe('home')
     expect(wrapper.text()).toContain('Agentic Vue3 Forge')
-    expect(wrapper.text()).toContain('Open Validation Lab')
+    expect(wrapper.text()).toContain('Mainline Ready')
   })
 
-  it('keeps the validation page under the lab route', async () => {
+  it('does not keep architecture validation routes in the main branch', async () => {
     const router = createAppRouter(createMemoryHistory())
     const wrapper = mount(App, {
       global: {
@@ -34,8 +34,7 @@ describe('App', () => {
     await router.push('/lab')
     await flushPromises()
 
-    expect(router.currentRoute.value.name).toBe('tailwind-v4')
-    expect(wrapper.text()).toContain('Tailwind CSS v4 smoke test')
-    expect(wrapper.text()).toContain('Utilities should feel obvious.')
+    expect(router.currentRoute.value.name).toBe('home')
+    expect(wrapper.text()).toContain('spike 分支')
   })
 })
