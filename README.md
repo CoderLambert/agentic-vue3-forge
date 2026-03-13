@@ -39,6 +39,16 @@ It is an **Agentic Engineering foundation**:
 - modules can scale with it
 - rules can evolve without breaking the core structure
 
+## Architecture Validation Workflow
+
+This repo keeps architecture experiments separate from the main product branch.
+
+- Use `spike/<topic>` branches for temporary validation pages, smoke routes, layout probes, and style-chain experiments.
+- Keep spike code isolated under `src/spikes/<topic>/` and temporary routes under paths such as `/__spike/<topic>`.
+- Do not turn `/` into a test page. The homepage stays product-facing.
+- After a spike proves the direction, merge back only reusable outcomes: conventions, scaffolding, minimal contract tests, and documentation.
+- Delete one-off validation pages and routes before merging unless they have clear long-term regression value.
+
 ## Tech stack
 
 - Vue 3
