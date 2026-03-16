@@ -62,7 +62,7 @@ const profileInitials = computed(() => {
   return source
     .split(/\s+/)
     .slice(0, 2)
-    .map(part => part[0]?.toUpperCase() ?? '')
+    .map((part) => part[0]?.toUpperCase() ?? '')
     .join('')
 })
 
@@ -115,7 +115,9 @@ const summaryText = computed(() => {
       <div class="absolute bottom-0 left-1/3 h-56 w-80 rounded-full bg-mist/12 blur-3xl" />
     </div>
 
-    <div class="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col gap-8 px-6 py-8 lg:px-10">
+    <div
+      class="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col gap-8 px-6 py-8 lg:px-10"
+    >
       <header class="rounded-[2rem] border border-border/60 bg-card/75 p-6 shadow-sm backdrop-blur">
         <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div class="space-y-3">
@@ -135,7 +137,8 @@ const summaryText = computed(() => {
                 shadcn-vue 基础组件验证
               </h1>
               <p class="max-w-3xl text-sm leading-6 text-muted-foreground sm:text-base">
-                这个临时页面用于集中验证 Button、Avatar、Select、Badge、Card、Checkbox、Dialog、Input
+                这个临时页面用于集中验证
+                Button、Avatar、Select、Badge、Card、Checkbox、Dialog、Input
                 的基础可用性、组合方式和交互状态。
               </p>
             </div>
@@ -147,10 +150,7 @@ const summaryText = computed(() => {
               <CardDescription>页面状态由左侧控制面板驱动。</CardDescription>
             </CardHeader>
             <CardContent class="px-4 pt-4">
-              <p
-                data-testid="summary-text"
-                class="text-sm leading-6 text-foreground"
-              >
+              <p data-testid="summary-text" class="text-sm leading-6 text-foreground">
                 {{ summaryText }}
               </p>
             </CardContent>
@@ -162,9 +162,7 @@ const summaryText = computed(() => {
         <Card class="h-fit border-border/70 bg-card/80 shadow-sm backdrop-blur">
           <CardHeader>
             <CardTitle>State Cockpit</CardTitle>
-            <CardDescription>
-              用本地状态切换各个 shadcn-vue 组件的展示结果。
-            </CardDescription>
+            <CardDescription> 用本地状态切换各个 shadcn-vue 组件的展示结果。 </CardDescription>
           </CardHeader>
 
           <CardContent class="flex flex-col gap-5">
@@ -280,9 +278,7 @@ const summaryText = computed(() => {
           <Card class="border-border/70 bg-card/80 shadow-sm backdrop-blur xl:col-span-2">
             <CardHeader>
               <CardTitle>Button + Badge</CardTitle>
-              <CardDescription>
-                验证主要动作按钮、状态徽章和组件变体切换。
-              </CardDescription>
+              <CardDescription> 验证主要动作按钮、状态徽章和组件变体切换。 </CardDescription>
               <CardAction>
                 <Badge variant="outline">{{ buttonVariant }} / {{ buttonSize }}</Badge>
               </CardAction>
@@ -327,18 +323,12 @@ const summaryText = computed(() => {
           <Card class="border-border/70 bg-card/80 shadow-sm backdrop-blur">
             <CardHeader>
               <CardTitle>Avatar + Identity</CardTitle>
-              <CardDescription>
-                验证 AvatarImage / AvatarFallback 和摘要联动。
-              </CardDescription>
+              <CardDescription> 验证 AvatarImage / AvatarFallback 和摘要联动。 </CardDescription>
             </CardHeader>
 
             <CardContent class="flex items-start gap-4">
               <Avatar class="size-18 border border-border/70 shadow-sm">
-                <AvatarImage
-                  v-if="avatarEnabled"
-                  :src="profileAvatarSrc"
-                  :alt="profileName"
-                />
+                <AvatarImage v-if="avatarEnabled" :src="profileAvatarSrc" :alt="profileName" />
                 <AvatarFallback class="bg-secondary text-secondary-foreground">
                   {{ profileInitials }}
                 </AvatarFallback>
@@ -362,28 +352,20 @@ const summaryText = computed(() => {
           <Card class="border-border/70 bg-card/80 shadow-sm backdrop-blur">
             <CardHeader>
               <CardTitle>Input + Card Composition</CardTitle>
-              <CardDescription>
-                用完整 Card 结构展示表单输入结果和静态说明。
-              </CardDescription>
+              <CardDescription> 用完整 Card 结构展示表单输入结果和静态说明。 </CardDescription>
             </CardHeader>
 
             <CardContent class="flex flex-col gap-4">
               <div class="flex flex-col gap-2">
                 <label class="text-sm font-medium">Mirrored input</label>
-                <Input
-                  :model-value="profileName"
-                  placeholder="Mirrored field"
-                  disabled
-                />
+                <Input :model-value="profileName" placeholder="Mirrored field" disabled />
               </div>
 
               <div class="rounded-xl border border-dashed border-border/80 bg-background/60 p-4">
                 <p class="text-xs uppercase tracking-[0.18em] text-muted-foreground">
                   Route contract
                 </p>
-                <p class="mt-2 font-mono text-sm text-foreground">
-                  /__spike/shadcn-components
-                </p>
+                <p class="mt-2 font-mono text-sm text-foreground">/__spike/shadcn-components</p>
               </div>
             </CardContent>
 
@@ -454,9 +436,7 @@ const summaryText = computed(() => {
                     <Button type="button" variant="outline" @click="dialogOpen = false">
                       Close
                     </Button>
-                    <Button type="button" @click="dialogOpen = false">
-                      Confirm layout
-                    </Button>
+                    <Button type="button" @click="dialogOpen = false"> Confirm layout </Button>
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
