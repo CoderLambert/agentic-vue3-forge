@@ -4,6 +4,8 @@ Configuration is read from `components.json`.
 
 > **IMPORTANT:** Always run commands using the project's package runner: `npx shadcn@latest`, `pnpm dlx shadcn@latest`, or `bunx --bun shadcn@latest`. Check `packageManager` from project context to choose the right one. Examples below use `npx shadcn@latest` but substitute the correct runner for the project.
 
+> **IMPORTANT:** This file documents the official React `shadcn` CLI first. For Vue 3, use `shadcn-vue` instead. The Vue CLI has different commands and does **not** support the React-only `docs`, `search`, `view`, or preset workflow.
+
 > **IMPORTANT:** Only use the flags documented below. Do not invent or guess flags — if a flag isn't listed here, it doesn't exist. The CLI auto-detects the package manager from the project's lockfile; there is no `--package-manager` flag.
 
 ## Contents
@@ -255,3 +257,35 @@ Ask the user first: **reinstall**, **merge**, or **skip** existing components?
 - **Skip** → `npx shadcn@latest init --preset <code> --force --no-reinstall`. Only updates config and CSS variables, leaves existing components as-is.
 
 Always run preset commands inside the user's project directory. The CLI automatically preserves the current base (`base` vs `radix`) from `components.json`. If you must use a scratch/temp directory (e.g. for `--dry-run` comparisons), pass `--base <current-base>` explicitly — preset codes do not encode the base.
+
+---
+
+## Vue 3 / shadcn-vue Quick Reference
+
+Use these commands instead of the React CLI when the repository is a Vue 3 app.
+
+```bash
+npx shadcn-vue@latest info
+npx shadcn-vue@latest init --force
+npx shadcn-vue@latest add button card dialog input
+npx shadcn-vue@latest diff button
+```
+
+### Supported Vue CLI Commands
+
+`shadcn-vue` exposes:
+
+- `init`
+- `add`
+- `diff`
+- `info`
+- `migrate`
+- `build`
+- `mcp`
+
+### Important Vue Differences
+
+- `shadcn-vue` generates Vue component directories such as `src/components/ui/button/Button.vue` plus `index.ts`.
+- Vue projects should use the `https://shadcn-vue.com/schema.json` `components.json` schema.
+- Vue configs typically use `aliases.composables` instead of `aliases.hooks`.
+- If a Vue project starts erroring on missing `react` after adding components, the wrong CLI was used and React-generated files and dependencies should be removed.
