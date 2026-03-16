@@ -1,5 +1,5 @@
 interface:
-  display_name: "shadcn/ui"
-  short_description: "Manages shadcn/ui components — adding, searching, fixing, debugging, styling, and composing UI."
+  display_name: "shadcn-vue"
+  short_description: "Manages shadcn-vue components in Vue 3 apps."
   icon_small: "./assets/shadcn-small.png"
   icon_large: "./assets/shadcn.png"

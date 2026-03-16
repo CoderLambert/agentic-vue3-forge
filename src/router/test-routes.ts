@@ -37,6 +37,16 @@ export const spikeRoutes: RouteRecordRaw[] = [
       createdAt: '2026-03-16',
     },
   },
+  {
+    path: `${SPIKE_PREFIX}/shadcn-components`,
+    name: 'spike-shadcn-components',
+    component: () => import('@/spikes/shadcn-components/ShadcnComponentsSpike.vue'),
+    meta: {
+      type: 'spike',
+      description: 'shadcn-vue 基础组件验证',
+      createdAt: '2026-03-16',
+    },
+  },
   // 在此添加更多 spike 路由...
   // {
   //   path: `${SPIKE_PREFIX}/router-layout`,
