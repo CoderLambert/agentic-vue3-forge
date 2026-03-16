@@ -40,3 +40,5 @@ __screenshots__/
 *.timestamp-*-*.mjs
 
 node_modules/
+*storybook.log
+storybook-static
